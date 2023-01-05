@@ -1,6 +1,6 @@
 interface ItemProps {
-  title: (string | JSX.Element)[];
-  description: (string | JSX.Element)[];
+  title: string;
+  description: string;
   link: string;
   instruction: string;
   cover: string;

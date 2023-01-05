@@ -2,7 +2,7 @@ import { z } from "zod";
 import { notion, databaseId } from "../../notionClient";
 import { RichText } from "../../../utils/formatText";
 
-import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
+import { createTRPCRouter, publicProcedure } from "../trpc";
 
 interface Properties {
   [key: string]: {
@@ -32,9 +32,6 @@ export const exampleRouter = createTRPCRouter({
       };
     }),
 
-  getSecretMessage: protectedProcedure.query(() => {
-    return "you can now see this secret message!";
-  }),
 
   getItems: publicProcedure.query(async () => {
     const response = await notion.databases.retrieve({

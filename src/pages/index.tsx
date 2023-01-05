@@ -27,8 +27,8 @@ const Home: NextPage = () => {
             {/* {JSON.stringify(getItems.data)} */}
 
             {getItems.data?.map((item) => {
-              const title = formatText(item.title?.rich_text!);
-              const description = formatText(item.description?.rich_text!);
+              const title = item.title?.rich_text?.[0]?.plain_text ?? "";
+              const description = item.description?.rich_text?.[0]?.plain_text ?? "";
               const instruction = item.instruction?.url ?? "";
               const link = item.link?.url ?? "";
 
