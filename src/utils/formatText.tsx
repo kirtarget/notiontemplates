@@ -23,8 +23,8 @@ export type RichText = {
   href: string | null;
 }[];
 
-export function formatText(richText: RichText) {
-  return richText.map((text) => {
+export function formatText(richText: RichText | undefined) {
+  return richText?.map((text) => {
     const {
       text: { content },
       annotations,

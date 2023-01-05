@@ -1,19 +1,30 @@
 interface ItemProps {
-  title: JSX.Element;
-  description: JSX.Element;
+  title: (string | JSX.Element)[];
+  description: (string | JSX.Element)[];
   link: string;
-  instruction: JSX.Element;
+  instruction: string;
   cover: string;
 }
 
 const Item = ({ title, description, link, instruction, cover }: ItemProps) => {
   return (
-    <div className="m-2 w-1/3 border border-gray-100 shadow-sm">
-      <h1>{title ?? ""}</h1>
-      {description ?? "Loading..."}
-      {/* {instruction ?? "Loading..."} */}
-      <img className="w-full" src={cover ?? ""} />
+    <div className="card m-4 w-96 bg-base-100 shadow-xl">
+      <div className="card-body">
+        <h2 className="card-title">{title ?? ""}</h2>
+        <p>{description ?? "Loading..."}</p>
+      </div>
+      <figure>
+        <img src={cover ?? ""} alt="Notion" className="w-full" />
+      </figure>
     </div>
+
+    // <div className="m-2 w-1/3 border border-gray-100 shadow-sm">
+    //   <h1>{title ?? ""}</h1>
+    //   {description ?? "Loading..."}
+    //   {/* {instruction ?? "Loading..."} */}
+    //   <img className="w-full" src={cover ?? ""} />
+    //   <button className="btn-primary btn">Скачать</button>
+    // </div>
   );
 };
 

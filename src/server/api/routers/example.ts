@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { notion, databaseId } from "../../notionClient";
+import { RichText } from "../../../utils/formatText";
 
 import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
 
@@ -8,28 +9,7 @@ interface Properties {
     id: string;
     type: string;
     url: string;
-    rich_text?: {
-      type: "text" | "mention" | "equation";
-      text: { content: string; link: string | null };
-      annotations: {
-        bold: boolean;
-        italic: boolean;
-        strikethrough: boolean;
-        underline: boolean;
-        code: boolean;
-        color:
-          | "default"
-          | "gray"
-          | "brown"
-          | "orange"
-          | "yellow"
-          | "green"
-          | "blue"
-          | "purple"
-          | "pink"
-          | "red";
-      };
-    };
+    rich_text?: RichText[];
   };
 }
 
