@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import EmbedYouTube from "./EmbedYouTube";
 
@@ -32,7 +33,7 @@ const MyModal = ({
           {instruction ? (
             <EmbedYouTube videoId={instructionId} />
           ) : (
-            <img src={cover} />
+            <img src={cover} alt={title} />
           )}
 
           <p className="py-4">{description}</p>

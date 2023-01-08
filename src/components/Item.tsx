@@ -1,7 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-
-import Link from "next/link";
-import EmbedYouTube from "./EmbedYouTube";
 import MyModal from "./MyModal";
 
 interface ItemProps {
