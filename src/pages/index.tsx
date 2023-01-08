@@ -3,7 +3,7 @@ import Head from "next/head";
 import useHasMounted from "../hooks/hasMounted";
 // import Link from "next/link";
 // import { signIn, signOut, useSession } from "next-auth/react";
-import { formatText, RichText } from "../utils/formatText";
+import { RichText } from "../utils/formatText";
 import { api } from "../utils/api";
 import Item from "../components/Item";
 import Footer from "../components/Footer";
@@ -28,7 +28,8 @@ const Home: NextPage = () => {
 
             {getItems.data?.map((item) => {
               const title = item.title?.rich_text?.[0]?.plain_text ?? "";
-              const description = item.description?.rich_text?.[0]?.plain_text ?? "";
+              const description =
+                item.description?.rich_text?.[0]?.plain_text ?? "";
               const instruction = item.instruction?.url ?? "";
               const link = item.link?.url ?? "";
 

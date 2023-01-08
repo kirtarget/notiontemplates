@@ -21,36 +21,36 @@ export type RichText = {
   };
   plain_text: string;
   href: string | null;
-}[];
+};
 
-export function formatText(richText: RichText | undefined) {
-  return richText?.map((text) => {
-    const {
-      text: { content },
-      annotations,
-    } = text;
+// export function formatText(richText: RichText | undefined) {
+//   return richText?.map((text) => {
+//     const {
+//       text: { content },
+//       annotations,
+//     } = text;
 
-    if (annotations.bold) {
-      return (
-        <span key={Math.random()} className="font-bold">
-          {content}
-        </span>
-      );
-    }
-    if (annotations.italic) {
-      return (
-        <span key={Math.random()} className="italic">
-          {content}
-        </span>
-      );
-    }
-    if (annotations.underline) {
-      return (
-        <span key={Math.random()} className="underline">
-          {content}
-        </span>
-      );
-    }
-    return content;
-  }, "");
-}
+//     if (annotations.bold) {
+//       return (
+//         <span key={Math.random()} className="font-bold">
+//           {content}
+//         </span>
+//       );
+//     }
+//     if (annotations.italic) {
+//       return (
+//         <span key={Math.random()} className="italic">
+//           {content}
+//         </span>
+//       );
+//     }
+//     if (annotations.underline) {
+//       return (
+//         <span key={Math.random()} className="underline">
+//           {content}
+//         </span>
+//       );
+//     }
+//     return content;
+//   }, "");
+// }
