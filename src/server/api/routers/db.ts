@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { notion, databaseId } from "../../notionClient";
-import { RichText } from "../../../utils/formatText";
+import type { RichText } from "../../../utils/formatText";
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
@@ -31,7 +31,6 @@ export const exampleRouter = createTRPCRouter({
         greeting: `Hello ${input.text}`,
       };
     }),
-
 
   getItems: publicProcedure.query(async () => {
     const response = await notion.databases.retrieve({

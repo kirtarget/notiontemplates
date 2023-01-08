@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface ItemProps {
   title: string;
   description: string;
@@ -6,7 +8,7 @@ interface ItemProps {
   cover: string;
 }
 
-const Item = ({ title, description, link, instruction, cover }: ItemProps) => {
+const Item = ({ title, description, cover }: ItemProps) => {
   return (
     <div className="card m-4 w-96 bg-base-100 shadow-xl">
       <div className="card-body">
@@ -14,7 +16,13 @@ const Item = ({ title, description, link, instruction, cover }: ItemProps) => {
         <p>{description ?? "Loading..."}</p>
       </div>
       <figure>
-        <img src={cover ?? ""} alt="Notion" className="w-full" />
+        <img
+          //   width={5000}
+          //   height={5000}
+          src={cover ?? ""}
+          alt="Notion"
+          className="w-full"
+        />
       </figure>
     </div>
 

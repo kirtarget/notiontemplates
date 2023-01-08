@@ -3,7 +3,6 @@ import Head from "next/head";
 import useHasMounted from "../hooks/hasMounted";
 // import Link from "next/link";
 // import { signIn, signOut, useSession } from "next-auth/react";
-import { RichText } from "../utils/formatText";
 import { api } from "../utils/api";
 import Item from "../components/Item";
 import Footer from "../components/Footer";
