@@ -30,6 +30,7 @@ const Home: NextPage = () => {
               const description =
                 item.description?.rich_text?.[0]?.plain_text ?? "";
               const instruction = item.instruction?.url ?? "";
+
               const link = item.link?.url ?? "";
 
               const cover: string = item.cover?.url ?? "";
