@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import EmbedYouTube from "./EmbedYouTube";
+import MyModal from "./MyModal";
 
 interface ItemProps {
   title: string;
@@ -13,14 +14,16 @@ interface ItemProps {
 
 const Item = ({ title, description, cover, link, instruction }: ItemProps) => {
   const instructionId: string | undefined = instruction.split("/").at(-1) ?? "";
-  console.log(instructionId);
   return (
     <>
       <div className="card m-4 w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title">{title ?? ""}</h2>
           <p>{description ?? "Loading..."}</p>
-          <label htmlFor="my-modal-5" className="btn-primary btn-xs btn w-24">
+          <label
+            htmlFor={`my-modal-${instructionId}`}
+            className="btn-primary btn-xs btn w-24"
+          >
             Подробнее
           </label>
         </div>
@@ -34,25 +37,14 @@ const Item = ({ title, description, cover, link, instruction }: ItemProps) => {
           />
         </figure>
       </div>
-
-      <input type="checkbox" id="my-modal-5" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box w-11/12 max-w-5xl">
-          <h3 className="mb-2 text-xl font-bold">{title}</h3>
-
-          <EmbedYouTube videoId={instructionId} />
-
-          <p className="py-4">{description}</p>
-          <div className="modal-action">
-            <label className="btn-primary btn">
-              <Link href={link}>Получить</Link>
-            </label>
-            <label htmlFor="my-modal-5" className="btn ">
-              Закрыть
-            </label>
-          </div>
-        </div>
-      </div>
+      <MyModal
+        instruction={instruction}
+        cover={cover}
+        description={description}
+        link={link}
+        instructionId={instructionId}
+        title={title}
+      />
     </>
 
     // <div className="m-2 w-1/3 border border-gray-100 shadow-sm">
