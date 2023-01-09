@@ -1,13 +1,11 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import useHasMounted from "../hooks/hasMounted";
 import { api } from "../utils/api";
 import Item from "../components/Item";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 const Home: NextPage = () => {
-  const hasMounted = useHasMounted();
   const getNames = api.db.getNames.useQuery(undefined, {
     enabled: true,
     refetchOnWindowFocus: false,
@@ -26,10 +24,10 @@ const Home: NextPage = () => {
       </Head>
       <main className="flex min-h-screen w-full flex-col bg-slate-100">
         <Navbar />
-        {hasMounted && getNames.isFetching && (
+        {getNames.isFetching && (
           <p className="px-4 font-bold text-slate-600">Загрузка...</p>
         )}
-        {hasMounted && getNames.isSuccess && (
+        {getNames.isSuccess && (
           <div className="flex flex-wrap">
             {getNames.data?.map((item) => {
               const title = item.title?.rich_text?.[0]?.plain_text ?? "";

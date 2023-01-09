@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import MyModal from "./MyModal";
+import Image from "next/image";
 
 interface ItemProps {
   title: string;
@@ -19,18 +20,22 @@ const Item = ({ title, description, cover, link, instruction }: ItemProps) => {
           <p>{description ?? "Loading..."}</p>
           <label
             htmlFor={`my-modal-${instructionId}`}
-            className="btn-primary btn-xs btn w-24"
+            className="btn-xs btn w-28"
           >
             Подробнее
           </label>
         </div>
         <figure>
-          <img
-            //   width={5000}
-            //   height={5000}
+          <Image
+            width={1920}
+            height={1080}
             src={cover ?? ""}
-            alt="Notion"
+            alt={title ?? ""}
+            blurDataURL={
+              "https://ghobmmemnoggofpivgrn.supabase.co/storage/v1/object/public/notion-templates/image%208.jpg"
+            }
             className="w-full"
+            placeholder="blur"
           />
         </figure>
       </div>
