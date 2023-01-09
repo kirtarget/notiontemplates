@@ -8,7 +8,14 @@ import Navbar from "../components/Navbar";
 
 const Home: NextPage = () => {
   const hasMounted = useHasMounted();
-  const getNames = api.db.getNames.useQuery();
+  const getNames = api.db.getNames.useQuery(undefined, {
+    enabled: true,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: true,
+    retry: true,
+    staleTime: 1000 * 60 * 60, //1h
+  });
 
   return (
     <>
