@@ -10,6 +10,7 @@ interface Properties {
     type: string;
     url: string;
     rich_text?: RichText[];
+    checkbox?: boolean;
   };
 }
 
@@ -23,7 +24,7 @@ interface NotionPage {
   url: string;
 }
 
-export const exampleRouter = createTRPCRouter({
+export const dbRouter = createTRPCRouter({
   hello: publicProcedure
     .input(z.object({ text: z.string() }))
     .query(({ input }) => {
@@ -67,5 +68,6 @@ function fromNotionObject(notionPage: NotionPage) {
     instruction: propertiesById[process.env.NOTION_INSTRUCTIONS_ID as string],
     description: propertiesById[process.env.NOTION_DESCRIPTION_ID as string],
     link: propertiesById[process.env.NOTION_LINK_ID as string],
+    toPublish: propertiesById[process.env.NOTION_TOPUBLISH_ID as string],
   };
 }

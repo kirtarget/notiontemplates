@@ -1,8 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import useHasMounted from "../hooks/hasMounted";
-// import Link from "next/link";
-// import { signIn, signOut, useSession } from "next-auth/react";
 import { api } from "../utils/api";
 import Item from "../components/Item";
 import Footer from "../components/Footer";
@@ -10,7 +8,7 @@ import Navbar from "../components/Navbar";
 
 const Home: NextPage = () => {
   const hasMounted = useHasMounted();
-  const getItems = api.example.getNames.useQuery();
+  const getNames = api.db.getNames.useQuery();
 
   return (
     <>
@@ -23,17 +21,22 @@ const Home: NextPage = () => {
         <Navbar />
         {hasMounted && (
           <div className="flex flex-wrap">
-            {/* {JSON.stringify(getItems.data)} */}
-
-            {getItems.data?.map((item) => {
+            {getNames.data?.map((item) => {
               const title = item.title?.rich_text?.[0]?.plain_text ?? "";
+
               const description =
                 item.description?.rich_text?.[0]?.plain_text ?? "";
               const instruction = item.instruction?.url ?? "";
 
+              const toPublish = item.toPublish?.checkbox;
+
               const link = item.link?.url ?? "";
 
               const cover: string = item.cover?.url ?? "";
+
+              if (!toPublish) {
+                return null;
+              }
               return (
                 <Item
                   key={Math.random()}
