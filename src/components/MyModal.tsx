@@ -38,9 +38,9 @@ const MyModal = ({
 
           <p className="py-4">{description}</p>
           <div className="modal-action">
-            <label className="btn-primary btn">
-              <Link href={link}>Получить</Link>
-            </label>
+            <Link href={link}>
+              <label className="btn-primary btn">Получить</label>
+            </Link>
             <label htmlFor={`my-modal-${instructionId}`} className="btn ">
               Закрыть
             </label>

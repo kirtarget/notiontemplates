@@ -1,6 +1,30 @@
 import { z } from "zod";
 import { notion, databaseId } from "../../notionClient";
-import type { RichText } from "../../../utils/formatText";
+
+export type RichText = {
+  type: "text" | "mention" | "equation";
+  text: { content: string; link: string | null };
+  annotations: {
+    bold: boolean;
+    italic: boolean;
+    strikethrough: boolean;
+    underline: boolean;
+    code: boolean;
+    color:
+      | "default"
+      | "gray"
+      | "brown"
+      | "orange"
+      | "yellow"
+      | "green"
+      | "blue"
+      | "purple"
+      | "pink"
+      | "red";
+  };
+  plain_text: string;
+  href: string | null;
+};
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
