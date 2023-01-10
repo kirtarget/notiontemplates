@@ -36,6 +36,7 @@ const Item = ({ title, description, cover, link, instruction }: ItemProps) => {
             }
             className="w-full "
             placeholder="blur"
+            loading={"lazy"}
           />
         </figure>
       </div>
