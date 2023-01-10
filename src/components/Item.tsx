@@ -34,7 +34,7 @@ const Item = ({ title, description, cover, link, instruction }: ItemProps) => {
             blurDataURL={
               "https://ghobmmemnoggofpivgrn.supabase.co/storage/v1/object/public/notion-templates/image%208.jpg"
             }
-            className="w-full"
+            className="w-full "
             placeholder="blur"
           />
         </figure>
