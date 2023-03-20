@@ -12,6 +12,9 @@ export default function Document() {
         <script
           dangerouslySetInnerHTML={{
             __html: `
+            <!-- Bothelp.io widget -->
+!function(){var e={"token":"79953043811","position":"right","bottomSpacing":"","callToActionMessage":"Написать","displayOn":"everywhere","subtitle":"Онлайн-школа подготовки к ЕГЭ и ОГЭ","message":{"name":"Сотка","content":"Здравствуйте, чем мы можем помочь?"}},t=document.location.protocol+"//bothelp.io",o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=t+"/widget-folder/widget-whatsapp-chat.js",o.onload=function(){BhWidgetWhatsappChat.init(e)};var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(o,n)}();
+
                 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
                 m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
                 (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
